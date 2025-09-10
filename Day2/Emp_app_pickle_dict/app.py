@@ -1,5 +1,4 @@
-
-import repo_inmen_dict as repo
+import repo_pickle_dict as repo
 
 def menu():
     message = '''
