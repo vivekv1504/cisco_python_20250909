@@ -1,0 +1,2 @@
+list:['I', 'AM', 'VINTYHA', 'VIVEKANANDA', 'REDDY', 'AND', 'I', 'AM', 'WORKING', 'IN', 'CISCO', 'AT', 'BANGLORE']
+Tuple:('I', 'AM', 'VINTYHA', 'VIVEKANANDA', 'REDDY', 'AND', 'I', 'AM', 'WORKING', 'IN', 'CISCO', 'AT', 'BANGLORE')

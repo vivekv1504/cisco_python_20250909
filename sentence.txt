@@ -1,0 +1,2 @@
+List of words:['am', 'vintha', 'vivekananda', ',i', 'am', 'learning', 'python', 'by', 'maheshwaran']
+tuple :('AM', 'VINTHA', 'VIVEKANANDA', ',I', 'AM', 'LEARNING', 'PYTHON', 'BY', 'MAHESHWARAN')

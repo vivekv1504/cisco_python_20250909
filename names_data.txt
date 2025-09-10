@@ -1,0 +1,2 @@
+Sorted list: ['jaya', 'sai', 'suraj', 'vivek']
+Tuple: ('jaya', 'sai', 'suraj', 'vivek')
