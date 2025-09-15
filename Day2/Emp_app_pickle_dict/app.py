@@ -1,63 +1,67 @@
-import repo_pickle_dict as repo
+import Day2.Flight_app_inmem_pickle.repo_pickle_dict as repo
 
 def menu():
     message = '''
 Options are:
-1 - Create Employee
-2 - List All Employees
-3 - Read Employee By Id
-4 - Update Employee
-5 - Delete Employee
+1 - Add Flight
+2 - List All Flights
+3 - Read Flight By Id
+4 - Update Flight Destination
+5 - Delete Flight
 6 - Exit 
 Your Option:'''
     choice = int(input(message))
     if choice == 1:
         id = int(input('ID:'))
-        name = input('Name:')
-        age = int(input('Age:'))
-        salary = float(input('Salary:'))
-        is_active = (input('Active(y/n):').upper() == 'Y')
+        flight_number = input('Flight Number:')
+        airline = input('Airline:')
+        seats = int(input('Seats:'))
+        price = int(input('Price:'))
+        source = (input('Source:'))
+        destination = (input('Destination:'))
 
-        employee = {'id':id, 'name':name, 'age':age, 
-                    'salary':salary, 'is_active':is_active}
+        flight = {'id':id, 'flight_number':flight_number, 'airline':airline, 
+                    'seats':seats, 'price':price, 'source':source, 'destination':destination}
 
-        repo.create_employee(employee)
+        repo.create_flight(flight)
 
-        print('Employee Created Successfully.')
+        print('Flight Added Successfully.')
     elif choice == 2:
-        print('List of Employees:')
-        for employee in repo.read_all_employee():
-            print(employee)
+        print('List of Flights:')
+        for flight in repo.read_all_flights():
+            print(flight)
     elif choice == 3:
         id = int(input('ID:'))
-        employee = repo.read_by_id(id)
-        if employee == None:
-            print('Employee not found.')
+        flight = repo.read_by_id(id)
+        if flight == None:
+            print('Flight not found.')
         else:
-            print(employee)
+            print(flight)
     elif choice == 4:
         id = int(input('ID:'))
-        employee = repo.read_by_id(id)
-        if employee == None: 
-            print('Employee Not Found')
+        flight = repo.read_by_id(id)
+        if flight == None: 
+            print('Flight Not Found')
         else:
-            print(employee)
-            salary = float(input('New Salary:'))
-            new_employee = {'id':employee['id'], 
-                'name':employee['name'], 
-                'age':employee['age'], 
-                'salary':salary, 
-                'is_active':employee['is_active']}
-            repo.update(id, new_employee)
-            print('Employee updated successfully.')
+            print(flight)
+            destination = input('New Destination:')
+            new_flight = {'id':flight['id'], 
+                'flight_number':flight['flight_number'], 
+                'airline':flight['airline'], 
+                'seats':flight['seats'], 
+                'price':flight['price'],
+                'source':flight['source'],
+                'destination':destination}
+            repo.update(id, new_flight)
+            print('Flight details updated successfully.')
     elif choice == 5:
         id = int(input('ID:'))
-        employee = repo.read_by_id(id)
-        if employee == None: 
-            print('Employee Not Found')
+        flight = repo.read_by_id(id)
+        if flight == None: 
+            print('Flight Not Found')
         else:
-            repo.delete_employee(id)
-            print('Employee Deleted Succesfully.')
+            repo.delete_flight(id)
+            print('Flight Deleted Succesfully.')
     elif choice == 6: 
         print('Thank you for using Application')
 
