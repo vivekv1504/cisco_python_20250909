@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, request
 from .crud import create_account, get_account, update_account, delete_account
 from .emailer import notify_account_creation
-from .batch_calc import batch_total_balances
+from .batch_calc import batch_total_balances, asyncio
 from flask import send_from_directory,current_app
 from .models import Account
+
 import os
 bp = Blueprint('api', __name__)
 @bp.route('/')
@@ -31,9 +32,11 @@ def api_list_accounts():
         "id": acc.id,
         "name": acc.name,
         "number": acc.number,
-        "balance": acc.balance
+        "balance": acc.balance,
+        "error":100
     } for acc in accounts]
     return jsonify(result)
+
 @bp.route('/accounts/<int:account_id>', methods=['GET'])
 def api_get_account(account_id):
     account = get_account(account_id)
